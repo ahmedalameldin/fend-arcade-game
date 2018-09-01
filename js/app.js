@@ -1,16 +1,20 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // X pos
     // Y pos
-    this.y = 0;
-    this.x = 0;
-
+    this.x = x;
+    this.y = y;
+    this.step = 101;
+    this.boundary = this.step * 5;
+    this.resetPos = -this.step;
+    this.speed = speed;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    console.log(`Enemy x: ${this.x} | y: ${this.y}`);
 };
 
 // Update the enemy's position, required method for game
@@ -21,14 +25,22 @@ Enemy.prototype.update = function(dt) {
     // all computers.
 
     // if enemy is not passed boundary
+    if (this.x < this.boundary) {
         // move forward
         // increment x by speed * dt
+        this.x += this.speed * dt;
+    }
     // else
         // reset to start point
+    else {
+        this.x = this.resetPos;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
+    this.x;
+    this.y;
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
@@ -38,6 +50,8 @@ Enemy.prototype.render = function() {
 
 // Player Class "Hero"
 class Hero {
+
+    // Constructor || Properties : x pos, y pos + sprite img
     constructor() {
         // Top left corner of the board
         this.x = 0;
@@ -60,54 +74,54 @@ class Hero {
 
     }
 
-    // Constructor
+// Methods :
 
-        // Properties :
-            // x pos
-            // y pos
-            // sprite img
+    // update()
+    update() {
+        // check collasion here
+        // did player x and y collide with enemy?
+        // did the player touch the top row?
+        for (let enemy of allEnemies) {
+            console.log(enemy);
+        }
+    }
 
-        // Methods :
+    // render()
+        // Draw player sprite on current x & y position?
+        render() {
+            ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        }
 
-            // update()
-                // check collasion here
-                // did player x and y collide with enemy?
-                // did the player touch the top row?
+    // handleInput()
+        // handle keyboard input to move the player x or y
+        // @param {string} input - Direction to travel
 
-            // render()
-                // Draw player sprite on current x & y position?
-                render() {
-                    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-                }
+        handleInput(input) {
+            switch(input) {
+                case 'left' : if (this.x > 0) { this.x -= this.step }
+                break;
+                case 'up' : if (this.y > 0) { this.y -= this.jump }
+                break;
+                case 'right' : if (this.x < this.step * 4) { this.x += this.step }
+                break;
+                case 'down' : if (this.y < this.jump * 4) { this.y += this.jump }
+                break;
 
-            // handleInput()
-                // handle keyboard input to move the player x or y
-                // @param {string} input - Direction to travel
+            } console.log(`Hero x: ${this.x} | y: ${this.y}`);
+        }
 
-                handleInput(input) {
-                    switch(input) {
-                        case 'left' : if (this.x > 0) { this.x -= this.step }
-                        break;
-                        case 'up' : if (this.y > 0) { this.y -= this.jump }
-                        break;
-                        case 'right' : if (this.x < this.step * 4) { this.x += this.step }
-                        break;
-                        case 'down' : if (this.y < this.jump * 4) { this.y += this.jump }
-                        break;
-
-                    } console.log(`x: ${this.x} | y: ${this.y}`);
-                }
-
-            // Reset
-                // Reset the position x & y to the player to old location
+    // Reset
+        // Reset the position x & y to the player to old location
 
 }
 
-const player = new Hero();
-const bugTest = new Enemy();
-const allEnemies = [];
-allEnemies.push(bugTest);
-
+const player = new Hero(),
+    bug1 = new Enemy(0, 56, 200),
+    bug2 = new Enemy(-101, 140, 300),
+    bug3 = new Enemy(-101*2.5, 140, 170),
+    bug4 = new Enemy(-102*4, 224, 250),
+    allEnemies = [];
+allEnemies.push(bug1,bug2,bug3,bug4);
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
