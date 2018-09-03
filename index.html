@@ -2,10 +2,41 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Effective JavaScript: Frogger</title>
+    <meta name="description" content="Arcade Game by Ahmed AlamEldin, Front End Nanodegree project by Udacity">
+    <title>Classic Arcade Game | by Ahmed AlamEldin</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Monda|Philosopher" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <h1>Classic Arcade Game</h1>
+    </header>
+
+    <!-- Finish modal -->
+    <div class="modal_bkgd">
+        <div class="modal_body">
+            <div class="modal_stats">
+                <svg viewBox="-10 -10 500 500">
+                <path class="circle" d="M877.28,335.72a203.17,203.17,0,0,1,37.86,118.1C915.14,565.26,823.44,657,712,657s-203.14-91.7-203.14-203.14S600.56,250.68,712,250.68a203.21,203.21,0,0,1,144.67,60.53"
+                transform="translate(-508.86 -250.68)" />
+                <polyline class="check" points="78.54 229.94 179.32 300.74 347.98 60.67" />
+                </svg>
+
+            <p>You Won!</p>
+            <h1>Congratulations</h1>
+
+            <span class="modal_time">x</span>
+            <span class="modal_stars">x</span>
+            <span class="modal_moves">x</span>
+
+            </div>
+
+            <div class="modal_btns">
+                <button class="modal_btn btn_cancel">Cancel</button>
+                <button class="modal_btn btn_reply">Reply</button>
+            </div>
+        </div>
+        </div>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>

@@ -22,11 +22,22 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
-        lastTime;
+        lastTime,
+        id;
+
+        const modal = document.querySelector('.modal_bkgd');
+        const replay = document.querySelector('.modal_btns');
 
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
+
+    replay.addEventListener('click', function() {
+        modal.classList.toggle('hide');
+        player.reset();
+        player.victory = false;
+        win.requestAnimationFrame(main);
+    });
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -55,7 +66,13 @@ var Engine = (function(global) {
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
-        win.requestAnimationFrame(main);
+        if (player.victory === true) {
+            win.cancelAnimationFrame(id);
+            modal.classList.toggle('hide')
+            console.log('Game stops');
+        } else {
+            id = win.requestAnimationFrame(main);
+        }
     }
 
     /* This function does some initial setup that should only occur once,
@@ -93,7 +110,7 @@ var Engine = (function(global) {
          allEnemies.forEach(function(enemy) {
              enemy.update(dt);
          });
-        // player.update();
+         player.update();
     }
 
     /* This function initially draws the "game level", it will then call

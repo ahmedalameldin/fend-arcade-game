@@ -6,15 +6,17 @@ var Enemy = function(x,y,speed) {
     // X pos
     // Y pos
     this.x = x;
-    this.y = y;
+    this.y = y+55;
     this.step = 101;
     this.boundary = this.step * 5;
     this.resetPos = -this.step;
     this.speed = speed;
+
+    this.victory = false;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    console.log(`Enemy x: ${this.x} | y: ${this.y}`);
+    // console.log(`Enemy x: ${this.x} | y: ${this.y}`);
 };
 
 // Update the enemy's position, required method for game
@@ -62,8 +64,8 @@ class Hero {
         this.step = 101;
 
         // Start place on the bottmo middle row
-        this.startX = 202;
-        this.startY = 405;
+        this.startX = this.step * 2;
+        this.startY = (this.jump * 4) + 55;
 
         // update the init location for our player "Hero"
         this.x = this.startX;
@@ -80,9 +82,17 @@ class Hero {
     update() {
         // check collasion here
         // did player x and y collide with enemy?
-        // did the player touch the top row?
         for (let enemy of allEnemies) {
-            console.log(enemy);
+            // console.log(enemy);
+            if (this.y === enemy.y && (enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2)) {
+                this.reset()
+                console.log(Touch);
+            }
+        }
+        // did the player touch the top row?
+        if (this.y === -28) {
+            this.victory = true;
+            console.log('winnnnnnnner');
         }
     }
 
@@ -111,17 +121,20 @@ class Hero {
         }
 
     // Reset
+    reset() {
+        this.y = this.startY;
+        this.x = this.startX;
+    }
         // Reset the position x & y to the player to old location
 
 }
 
 const player = new Hero(),
-    bug1 = new Enemy(0, 56, 200),
-    bug2 = new Enemy(-101, 140, 300),
-    bug3 = new Enemy(-101*2.5, 140, 170),
-    bug4 = new Enemy(-102*4, 224, 250),
+    bug1 = new Enemy(-101, 0, 200),
+    bug2 = new Enemy(-101, 83, 300),
+    bug3 = new Enemy(-101*2.5, 83, 300),
     allEnemies = [];
-allEnemies.push(bug1,bug2,bug3,bug4);
+allEnemies.push(bug1,bug2,bug3);
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
