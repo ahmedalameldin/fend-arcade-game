@@ -1,6 +1,50 @@
-frontend-nanodegree-arcade-game
-===============================
+# Front-end Nanodegree Arcade Game
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+![Logo](images/char-boy.png)
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+Matching game is a simple game that require move the Hero to the river "top row" and Avoid colliding into any one of the bugs "enemies", once you get to the river your score will increase and you will start over from the bottom.
+
+You will have 5 lives, once you collide with enimies you will lose one live and start again from the bottom.
+
+GOOD LUCK
+
+## About the concept
+
+This project is by Udacity for the students enrolled on Front-End Web Developer Course, requires of using HTML, CSS, JavaScript to run the game.
+
+## Contributing
+
+You are **welcome** and I love pull requests from everyone.
+
+Here are some ways you can contribute:
+
+- by reporting bugs
+- by suggesting new features
+- by writing or editing documentation
+- by writing specifications
+- by writing code ( fix or add js files, add comments, modifiyng styles)
+
+## Submitting a Pull Request
+
+1. [Fork][fork] the [official repository][repo].
+2. [Create a topic branch.][branch]
+3. Implement your feature or bug fix.
+4. Add, commit, and push your changes.
+5. [Submit a pull request.][pr]
+
+### NOTES for Udacity Students
+
+If you are one of Udacity students:
+
+- Feel free to copy this project and use it, _BUT_ remember that the main **GOAL** is to learn how you can do projects by yourself.
+- This is not the only or even best one, there are many ways to achieve the same result by diffrent piece of codes.
+- Try to understand and you can find a better way for sure.
+
+For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+
+#### THANK YOU ...
+
+[repo]: https://github.com/ahmedalameldin/fend-arcade-game
+[fork]: https://help.github.com/articles/fork-a-repo/
+[branch]: https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/
+[pr]: https://help.github.com/articles/using-pull-requests/

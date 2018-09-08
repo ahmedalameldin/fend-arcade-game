@@ -35,7 +35,8 @@ var Engine = (function(global) {
     replay.addEventListener('click', function() {
         modal.classList.toggle('hide');
         player.reset();
-        player.victory = false;
+        player.resetPlayer();
+        player.gameOver = false;
         win.requestAnimationFrame(main);
     });
 
@@ -66,13 +67,19 @@ var Engine = (function(global) {
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
-        if (player.victory === true) {
+        if (player.gameOver === true) {
+            const finalScore = document.querySelector('.final-score');
             win.cancelAnimationFrame(id);
-            modal.classList.toggle('hide')
-            console.log('Game stops');
+            modal.classList.toggle('hide');
+            finalScore.innerHTML = player.score;
+            //console.log('Game stops');
         } else {
             id = win.requestAnimationFrame(main);
         }
+    }
+
+    function checkLives() {
+
     }
 
     /* This function does some initial setup that should only occur once,
