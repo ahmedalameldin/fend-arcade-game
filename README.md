@@ -2,9 +2,17 @@
 
 ![Logo](images/char-boy.png)
 
-Matching game is a simple game that require move the Hero to the river "top row" and Avoid colliding into any one of the bugs "enemies", once you get to the river your score will increase and you will start over from the bottom.
+## About
 
-You will have 5 lives, once you collide with enimies you will lose one live and start again from the bottom.
+Arcade game is a simple game that require move the Hero to the river "top row" and Avoid colliding into any one of the bugs "enemies", once you get to the river your score will increase and you will start over from the bottom.
+
+You will have **5 lives**, once you collide with enimies you will lose one live and start again from the bottom.
+
+## How to play
+
+- [Download][download] required files as .zip extension.
+- Unzip the file.
+- Locate "index.html" and open it.
 
 GOOD LUCK
 
@@ -42,9 +50,10 @@ If you are one of Udacity students:
 
 For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
 
-#### THANK YOU ...
+#### THANK YOU
 
 [repo]: https://github.com/ahmedalameldin/fend-arcade-game
 [fork]: https://help.github.com/articles/fork-a-repo/
 [branch]: https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/
 [pr]: https://help.github.com/articles/using-pull-requests/
+[download]: https://github.com/ahmedalameldin/fend-arcade-game/archive/master.zip
